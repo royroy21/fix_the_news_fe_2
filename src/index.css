@@ -9,3 +9,7 @@ body {
 code {
   font-family: "Inter", "Helvetica", "Arial", sans-serif;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}

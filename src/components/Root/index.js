@@ -3,15 +3,14 @@ import Header from "../Header";
 import RootWrapper from "./wrapper";
 import {
   aboutCommunicationRoute,
-  localStorageAuthTokenKey, privacyRoute, topicRoute, VIEW_COMMUNICATIONS
+  localStorageAuthTokenKey, privacyRoute, VIEW_COMMUNICATIONS
 } from "../../settings";
-import Topics from "../Topics";
 import HeaderMobile from "../Header/HeaderMobile";
 import Communications from "../Communications";
 import {Route} from "react-router-dom";
 import About from "../About";
 import Privacy from "../Privacy";
-import TopicPage from "../TopicPage";
+import NewsItems from "../v2_NewsItems";
 class Root extends Component {
 
   MOBILE_WIDTH = 900;
@@ -109,14 +108,14 @@ class Root extends Component {
               path={privacyRoute}
             />
             <Route
-              component={Topics}
+              component={NewsItems}
               exact
               path={'/'}
             />
-            <Route
-              component={TopicPage}
-              path={topicRoute}
-            />
+            {/*<Route*/}
+            {/*  component={TopicPage}*/}
+            {/*  path={topicRoute}*/}
+            {/*/>*/}
           </div>
         </div>
       </div>

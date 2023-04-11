@@ -21,11 +21,12 @@ const styles = (theme) => ({
     },
   },
   chipContainer: {
+    paddingTop: 5,
     bottom: 5,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    position: "absolute",
+    // position: "absolute",
     width: "100%",
   },
   link: {
@@ -38,7 +39,7 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.primary.light,
     border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: 4,
-    height: 110,
+    minHeight: 110,
     padding: theme.spacing(1),
     position: "relative",
   },
@@ -47,7 +48,6 @@ const styles = (theme) => ({
     fontWeight: 500,
     lineHeight: "18px",
     overflowY: "scroll",
-    height: 75,
     "&:hover": {
       color: theme.palette.secondary.main,
     },
@@ -86,19 +86,17 @@ class NewsItem extends Component {
     }
     const extraContainerStyle = isMobile
       ? {
-        marginRight: 10,
-        minWidth: screenWidth - 100,
-        maxWidth: screenWidth - 100,
+        margin: 5,
       }
       : {
-        minWidth: 150,
-        maxWidth: 430,
+        width: "98%",
         marginBottom: 10,
       };
 
-    const LINE_LIMIT = isMobile ? 100 : 400;
-    const LINE_LIMIT_WITH_IMAGE = isMobile ? 44 : 140;
-    const lineLimit = item.image ? LINE_LIMIT_WITH_IMAGE : LINE_LIMIT;
+    // TODO - do we still need this?
+    // const LINE_LIMIT = isMobile ? 100 : 400;
+    // const LINE_LIMIT_WITH_IMAGE = isMobile ? 44 : 140;
+    // const lineLimit = item.image ? LINE_LIMIT_WITH_IMAGE : LINE_LIMIT;
 
     return (
       <div
@@ -127,9 +125,12 @@ class NewsItem extends Component {
           onClick={this.addView}
         >
           <Typography variant={"subtitle2"}>
-            <div className={classes.title}>
-              {item.title}
-            </div>
+            <div
+              className={classes.title}
+              style={{fontWeight: "bold"}}
+              dangerouslySetInnerHTML={{ __html: item.title_from_source }}
+            />
+            <div dangerouslySetInnerHTML={{ __html: item.description_from_source }} />
           </Typography>
         </Link>
         <div className={classes.chipContainer}>

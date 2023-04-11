@@ -3,7 +3,7 @@ import CustomModal from "../CustomModal";
 import NewsItemForm from "./NewsItemForm";
 import NewsItemWrapper from "./wrapper";
 
-const NewsItemModal = ({actions, open, onClose, store, modelProps}) => {
+const NewsItemModal = ({actions, open, onClose, store}) => {
   return (
     <CustomModal
       open={open}
@@ -15,11 +15,8 @@ const NewsItemModal = ({actions, open, onClose, store, modelProps}) => {
           clearNewsItem: actions.clearNewsItem,
         },
         buttonLabel: "Add Viewpoint",
-        categories: modelProps.categories,
-        categoryId: modelProps.categoryId,
         storeObject: store.newsItem,
         successMessage: "Viewpoint successfully added",
-        topicId: modelProps.topicId,
         isMobile: store.appDimensions.isMobile,
       }}
       header={"Add Viewpoint"}

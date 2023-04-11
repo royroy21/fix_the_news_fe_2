@@ -10,10 +10,12 @@ class NeverEndingScrolling extends Component {
   }
 
   handleScroll = (e) => {
+
+    // TODO - I don't think we need this as scrolling elements are not nested
     // This is used to stop parent scroll events from firing
-    if (e.target.id !== this.props.id) {
-      return
-    }
+    // if (e.target.id !== this.props.id) {
+    //   return
+    // }
 
     const bottom = ((e.target.scrollHeight - e.target.scrollTop) - 100)
       < e.target.clientHeight;

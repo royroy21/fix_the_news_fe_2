@@ -1,4 +1,5 @@
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import {createTheme} from "@material-ui/core";
+
 
 export const categoryIndicatorFor = "#00BA13";
 export const categoryIndicatorNeutral = "#FFAB00";
@@ -29,6 +30,6 @@ export const themeObject = {
     fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
   },
 };
-const theme = createMuiTheme(themeObject);
+const theme = createTheme(themeObject);
 
 export default theme;

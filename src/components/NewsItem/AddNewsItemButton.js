@@ -4,16 +4,11 @@ import AddIcon from "@material-ui/icons/Add";
 import NewsItemModal from "./NewsItemModal";
 
 
-const AddNewsItemButton = ({categoryId, topic, user, smallButton=false, style={}}) => {
+const AddNewsItemButton = ({user, smallButton=false, style={}}) => {
   return (
     <ButtonForModal
       icon={<AddIcon style={style} fontSize={smallButton ? 'small' : 'large'} />}
       Modal={NewsItemModal}
-      modelProps={{
-        categories: topic.serialized_categories,
-        topicId: topic.id,
-        categoryId: categoryId,
-      }}
     />
   )
 }
